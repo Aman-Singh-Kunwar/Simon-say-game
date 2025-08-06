@@ -13,7 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .game-container {
@@ -21,6 +21,7 @@ body {
     padding: 20px;
     max-width: 600px;
     width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 h1 {
@@ -168,10 +169,13 @@ h1 {
 
 .game-info {
     background: rgba(255,255,255,0.1);
-    padding: 20px;
+    padding: 15px; /* Reduced padding for better fit */
     border-radius: 15px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
+    width: 100%; /* Ensure it doesn't exceed container width */
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding in width */
 }
 
 #message {
@@ -201,6 +205,7 @@ h1 {
     color: #333;
     font-size: 1rem;
     cursor: pointer;
+    max-width: 150px; /* Limit select width for smaller screens */
 }
 
 @media (max-width: 768px) {
@@ -220,5 +225,56 @@ h1 {
     .controls {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .game-container {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+    
+    .game-info {
+        padding: 10px; /* Further reduce padding */
+        font-size: 0.9rem; /* Slightly smaller text */
+    }
+    
+    #message {
+        font-size: 1.1rem; /* Adjust message size */
+    }
+    
+    .difficulty label {
+        font-size: 0.9rem; /* Smaller label */
+    }
+    
+    #difficulty-select {
+        font-size: 0.9rem; /* Smaller select text */
+        padding: 6px 10px; /* Adjust padding */
+        max-width: 120px; /* Smaller select width */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem; /* Further reduce title size */
+    }
+    
+    .button-container {
+        max-width: 250px; /* Smaller game board */
+    }
+    
+    .game-info {
+        padding: 8px; /* Minimal padding */
+    }
+    
+    #message {
+        font-size: 1rem; /* Smaller message */
+    }
+    
+    .difficulty label {
+        font-size: 0.8rem; /* Smaller label */
+    }
+    
+    #difficulty-select {
+        font-size: 0.8rem; /* Smaller select text */
+        padding: 5px 8px; /* Minimal padding */
+        max-width: 100px; /* Smaller select width */
     }
 }
