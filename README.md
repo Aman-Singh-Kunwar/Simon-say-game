@@ -37,7 +37,7 @@ I have enhanced it with several new features to make gameplay more engaging and 
 simon-say-game/
 ├── index.html
 ├── style.css
-├── app.js
+└── app.js
 ```
 
 
