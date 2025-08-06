@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+.game-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    animation: glow 2s ease-in-out infinite alternate;
+    letter-spacing: 2px;
+}
+
+@keyframes glow {
+    from { 
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.3); 
+    }
+    to { 
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.6); 
+    }
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.score, .level, .best-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.score span, .level span, .best-score span {
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.game-board {
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+}
+
+.game-button {
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    border: 3px solid rgba(255,255,255,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+.game-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.game-button.red {
+    background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+}
+
+.game-button.blue {
+    background: linear-gradient(145deg, #4ecdc4, #44a08d);
+}
+
+.game-button.green {
+    background: linear-gradient(145deg, #95e1d3, #7fcdcd);
+}
+
+.game-button.yellow {
+    background: linear-gradient(145deg, #fce38a, #f38ba8);
+}
+
+.game-button.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255,255,255,0.8);
+    filter: brightness(1.5);
+}
+
+.game-button.wrong {
+    animation: shake 0.5s ease-in-out;
+    background: #ff4757 !important;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    font-weight: bold;
+}
+
+.control-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(145deg, #764ba2, #667eea);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.game-info {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+#message {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.difficulty label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#difficulty-select {
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .button-container {
+        max-width: 300px;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Says Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Simon Says</h1>
+
+      <div class="score-board">
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="level">Level: <span id="level">1</span></div>
+        <div class="best-score">Best: <span id="best-score">0</span></div>
+      </div>
+
+      <div class="game-board">
+        <div class="button-container">
+          <button class="game-button red" id="red" data-color="red"></button>
+          <button class="game-button blue" id="blue" data-color="blue"></button>
+          <button
+            class="game-button green"
+            id="green"
+            data-color="green"
+          ></button>
+          <button
+            class="game-button yellow"
+            id="yellow"
+            data-color="yellow"
+          ></button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="start-btn" class="control-btn">Start Game</button>
+        <button id="reset-btn" class="control-btn">Reset</button>
+      </div>
+
+      <div class="game-info">
+        <p id="message">Press Start to begin!</p>
+        <div class="difficulty">
+          <label for="difficulty-select">Difficulty:</label>
+          <select id="difficulty-select">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
